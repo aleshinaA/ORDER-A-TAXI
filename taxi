@@ -1,0 +1,40 @@
+import java.util.Scanner;
+import java.util.Random;
+
+public class TaxiOrder {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Random rand = new Random();
+
+        System.out.print("give me your adress: ");
+        String address = sc.nextLine();
+
+        System.out.println("choose tarif: ");
+        System.out.println("1 - economy");
+        System.out.println("2 - comfort");
+        int tariffChoice = sc.nextInt();
+
+        String tariffName = "";
+        int price = 0;
+        int time = 0;
+
+        if (tariffChoice == 1) {
+            tariffName = "economy";
+            price = 800 + rand.nextInt(401);
+            time = 3 + rand.nextInt(5);      
+        } else if (tariffChoice == 2) {
+            tariffName = "comfort";
+            price = 1200 + rand.nextInt(601); 
+            time = 5 + rand.nextInt(6);      
+        } else {
+            System.out.println("wrong");
+            return;
+        }
+
+        System.out.println("\n=== order the taxi ===");
+        System.out.println("adress: " + address);
+        System.out.println("tarif: " + tariffName);
+        System.out.println("cost: " + price + " tg");
+        System.out.println("time of waiting: " + time + " min");
+    }
+}
